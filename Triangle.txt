@@ -1,0 +1,46 @@
+package javabook;
+// 사각형의 넓이 구하기
+public class Triangle {
+
+	int base;
+	int height;
+	
+	public Triangle() {
+		base = 0;
+		height = 0;
+	}
+	public Triangle(int b, int h)
+	{
+		base = b;
+		height = h;
+	}
+
+	public double Area() {
+		return base*height*1/2;
+		
+	}
+	public int Chba(int b) {
+		base = b;
+		return base;
+	}
+	public int Chhe(int h) {
+		height = h;
+		return height;
+	}
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		double result;
+		Triangle tr1 = new Triangle(100,5);
+		Triangle tr2 = new Triangle(200,15);
+		result = tr1.Area();
+		System.out.println(result);
+		result = tr2.Area();
+		System.out.println(result);
+		Triangle tr3 = new Triangle();
+		tr3.Chba(1000);
+		tr3.Chhe(4);
+		result =  tr3.Area();
+		System.out.println(result);
+	}
+
+}
