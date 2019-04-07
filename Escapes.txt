@@ -1,0 +1,10 @@
+package javabook;
+// 특수문자인 유로 사용하기
+public class Escapes {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		System.out.println("오늘의 환율은 1$에 0.88" + '\u20AC' + "입니다.");
+	}
+
+}
