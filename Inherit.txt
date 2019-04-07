@@ -1,0 +1,41 @@
+package javabook;
+// 상속 of 상속 이용하기
+class Box1{
+	public void wrap() {
+		System.out.println("Simple Wrapping");
+	}
+}
+
+class PaperBox extends Box1{
+	public void wrap() {
+		System.out.println("Paper Wrapping");
+	}
+}
+
+class GoldPaperBox extends PaperBox{
+	public void wrap() {
+		System.out.println("Gold Wrapping");
+	}
+}
+
+
+
+
+public class Wrapping {
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Box1 box1 = new Box1();
+		PaperBox box2 = new PaperBox();
+		GoldPaperBox box3 = new GoldPaperBox();
+		
+		wrapBox(box1);
+		wrapBox(box2);
+		wrapBox(box3);
+		
+	}
+	public static void wrapBox(Box1 box) {
+		box.wrap();
+	}
+
+
+}
