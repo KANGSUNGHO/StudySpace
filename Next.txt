@@ -1,0 +1,22 @@
+package javabook;
+// next()로 문자열 읽어오기
+import java.util.Scanner;
+
+public class NextEx {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner sc = new Scanner(System.in);
+		String sub;
+		int score;
+		System.out.print("과목: ");
+		sub = sc.nextLine();
+		System.out.print("점수: ");
+		score = sc.nextInt();
+		System.out.println(sub + ":" + score);
+		
+		
+
+	}
+
+}
