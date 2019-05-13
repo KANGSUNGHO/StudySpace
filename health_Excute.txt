@@ -1,0 +1,148 @@
+library(readxl)
+df_health <- read_excel("health.xlsx")
+
+health <- df_health
+head(health)
+View(head(health))
+summary(health)
+dim(health)
+library(readxl)
+
+summary(health)
+
+#변수명바꾸기
+library(dplyr)
+health <- rename(health,
+                 no = "가입자일련번호",
+                 sex = "성별코드",
+                 age = "연령대코드(5세단위)",
+                 city = "시도코드",
+                 height = "신장(5Cm단위)",
+                 weight = "체중(5Kg단위)",
+                 blood = "이완기혈압",
+                 chole = "총콜레스테롤")
+head(health)
+#성별 변수 분석하기
+class(health$sex)
+table(health$sex)
+
+health$sex <- ifelse(health$sex == 1, "male", "female")
+table(health$sex)
+qplot(health$sex)
+library(ggplot2)
+
+#신장 변수 분석하기
+class(health$height)
+summary(health$height)
+qplot(health$height)
+
+health$height <- ifelse(health$height > 140 & health$height < 185, health$height,NA )
+table(is.na(health$height))
+sex_height <- health %>% 
+  filter(!is.na(height)) %>% 
+  group_by(sex) %>% 
+  summarise(mean_height = mean(height))
+sex_height
+ggplot(data = sex_height, aes(x = sex, y = mean_height)) + geom_col()
+
+#연령대별 고혈압 차이
+class(health$age)
+table(health$age)
+summary(health$age)
+health$age <- rename(health$age,
+                     less_24 = 5,
+                     less_29 = 6,
+                     less_34 = 7,
+                     less_39 = 8,
+                     less_44 = 9,
+                     less_49 = 10,
+                     less_54 = 11,
+                     less_59 = 12,
+                     less_64 = 13,
+                     less_69 = 14,
+                     less_74 = 15,
+                     less_79 = 16,
+                     less_84 = 17,
+                     more_85 = 18)
+#연령별 코드 목록 만들기
+age_list <- data.frame(age = c(5:18),
+                       list = c("24세이하",
+                                "29세이하",
+                                "34세이하",
+                                "39세이하",
+                                "44세이하",
+                                "49세이하",
+                                "54세이하",
+                                "59세이하",
+                                "64세이하",
+                                "69세이하",
+                                "74세이하",
+                                "79세이하",
+                                "84세이하",
+                                "85세이상"))
+age_list
+health <- left_join(health, age_list, id = "age")
+health %>% 
+  select(age,list) %>% 
+  head
+
+#이완기 혈압 분석하기
+class(health$blood)
+table(health$blood)
+summary(health$blood)
+qplot(health$blood)
+qplot(health$blood) + xlim(50,100)
+health$blood <- ifelse(health$blood > 100, NA, health$blood)
+table(is.na(health$blood))
+# 연령대별 혈압 차이
+age_blood <- health %>% 
+  filter(!is.na(blood)) %>% 
+  group_by(list) %>% 
+  summarise(mean_blood = mean(blood))
+age_blood
+ggplot(data = age_blood, aes(x = list, y = mean_blood)) + geom_col()
+summary(age_blood)
+health$high_blood <- ifelse(health$blood > 90, "YES", "NO")
+table(health$high_blood)
+qplot(health$high_blood)
+table(is.na(health$high_blood))
+
+#연령대별 고혈합 유무
+age_high_blood <- health %>% 
+  filter(!is.na(high_blood)) %>% 
+  select(age,list,high_blood) %>% 
+  arrange(age)
+
+View(age_high_blood)  
+
+#흡연유무에 따른 평균혈압
+health <- rename(health, smoke = "흡연상태")
+class(health$smoke)
+table(health$smoke)
+qplot(health$smoke)
+health$smoke <- ifelse(health$smoke == 1, "no",
+                       ifelse(health$smoke == 2, "nonesmoking", "smoking"))
+table(health$smoke)                       
+#흡연유무에 따른 평균 혈압표 만들기
+smoke_blood <- health %>% 
+  filter(!is.na(blood)) %>% 
+  group_by(smoke) %>% 
+  summarise(mean_blood = mean(blood))
+smoke_blood
+ggplot(data = smoke_blood, aes(x = smoke, y = mean_blood)) + geom_col()
+
+sex_smoke_blood <- health %>% 
+  filter(!is.na(blood)) %>% 
+  group_by(sex,smoke) %>% 
+  summarise(mean_blood = mean(blood))
+ggplot(data = sex_smoke_blood, aes(x = sex, y = mean_blood, fill = smoke)) + geom_col()
+ggplot(data = sex_smoke_blood, aes(x = sex, y = mean_blood, fill = smoke)) + geom_col(position = "dodge")
+ggplot(data = sex_smoke_blood, aes(x = reorder(sex,-mean_blood), y = mean_blood, fill = smoke)) + geom_col(position = "dodge")
+sex_smoke_blood
+# 성별에 따른 평균혈압
+sex_blood <- health %>% 
+  filter(!is.na(blood)) %>% 
+  group_by(sex) %>% 
+  summarise(mean_blood = mean(blood))
+sex_blood
+ggplot(data = sex_blood, aes(x = sex, y = mean_blood)) + geom_col()
