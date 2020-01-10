@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>블루투스 이어폰 쇼핑몰</title>
+
+	<!-- Required meta tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<!-- 구글 웹폰트 -->
+	<link href="https://fonts.googleapis.com/css?family=Jua&display=swap" rel="stylesheet">
+
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+	<!-- JS -->		
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+	<style>
+		.wrap{
+			width:500px;
+			margin:auto;
+			font-family: 'Jua', sans-serif;
+		}
+	</style>
+</head>
+<body>
+	<div class="wrap">
+		<div class="card text-center jumbotron">
+			<img class="card-img-top rounded mx-auto d-block" style="width:300px" src="./earphone.jpg">
+			<div class="card-body">
+				<h3 class="card-title">블루투스 이어폰 사세요!</h5>
+					<hr>
+					<small class="text-right">가격 : 50000원/개</small><hr>
+					<p class="card-text">이 이어폰은 세상의 아름답고 감미로운 소리를 들을 수 있습니다. 힐링하고 싶다면 지금 당장 구입하세요.!!</p>
+				</div>
+				<div class="card-body">
+					<div class="input-group input-group-sm mb-3">
+						<div class="input-group-prepend">
+							<span class="input-group-text" id="inputGroup-sizing-sm">주문자 이름</span>
+						</div>
+						<input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+					</div>
+					<div class="input-group mb-3">
+						<div class="input-group-prepend">
+							<label class="input-group-text" for="inputGroupSelect01">수량</label>
+						</div>
+						<select class="custom-select" id="inputGroupSelect01">
+							<option selected>--개수를 선택하세요--</option>
+							<option value="1">1개</option>
+							<option value="2">2개</option>
+							<option value="3">3개</option>
+							<option value="4">4개</option>
+							<option value="5">5개</option>
+						</select>
+					</div>
+					<div class="input-group flex-nowrap mb-3">
+						<div class="input-group-prepend">
+							<span class="input-group-text" id="addon-wrapping">이메일</span>
+						</div>
+						<input type="email" class="form-control" placeholder="name@example.com" aria-label="Username" aria-describedby="addon-wrapping">
+					</div>
+					<div class="input-group input-group-sm mb-3">
+						<div class="input-group-prepend">
+							<span class="input-group-text" id="inputGroup-sizing-sm">주소</span>
+						</div>
+						<input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+					</div>
+					<div class="input-group input-group-sm mb-3">
+						<div class="input-group-prepend">
+							<span class="input-group-text" id="inputGroup-sizing-sm">전화번호</span>
+						</div>
+						<input type="tel" placeholder=" '-'을 제외한 휴대폰번호를 입력해 주세요" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+					</div>
+						<div class="input-group input-group-sm mb-3">
+						<div class="input-group-prepend">
+							<span class="input-group-text" id="inputGroup-sizing-sm">생년월일</span>
+						</div>
+						<input type="date"  class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+					</div>
+					<div class="form-group form-check">
+						<input type="checkbox" class="form-check-input" id="exampleCheck1">
+						<label class="form-check-label" for="exampleCheck1">구매에 동의 하십니까?</label>
+					</div>
+				</div>
+				<div class="card-body text-center">
+					<div class="btn btn-warning">
+						주문하기
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+	</html>
