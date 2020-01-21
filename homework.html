@@ -26,6 +26,30 @@
 	</style>
 	<script>
 		/*이름 입력 alert 및 포커스*/
+		$("document").ready(function(){
+			$.ajax({
+				type: "GET",
+				url: "http://spartacodingclub.shop/order",
+				data: {},
+				success: function(response){
+					let rows = response["orders"];
+					for (let i = 0; i < rows.length; i++) {
+						let address = rows[i]["address"]
+						let count = rows[i]["count"];
+						let name = rows[i]["name"]
+						let tel = rows[i]["phone"]
+						let user_list = [name,count,address,tel]
+						let temp_html = "<tr>"
+						for(let i = 0; i < user_list.length; i++){
+							temp_html += "<td>"+user_list[i]+ "</td>"
+						}
+						temp_html += "</tr>"
+						$('#order').append(temp_html);
+					}
+				}
+			})
+
+		})
 		function order_name(){
 			let text1 = $("#user_name").val()
 			console.log(text1)
@@ -99,7 +123,6 @@
 			order_email()
 			order_tel()
 			check_agree()
-			
 		}
 	</script>
 </head>
@@ -121,82 +144,82 @@
 					</div>
 				</div>
 			</a>
-				<!-- <img class="card-img-top rounded mx-auto d-block" style="width:300px" src="http://img.wemep.co.kr/deal/2/711/2747112/5aef08b27a8c0577b0ef0f75967197c7ce396ecf.jpg"></a> -->
+			<!-- <img class="card-img-top rounded mx-auto d-block" style="width:300px" src="http://img.wemep.co.kr/deal/2/711/2747112/5aef08b27a8c0577b0ef0f75967197c7ce396ecf.jpg"></a> -->
 			<div class="card-body">
 				<h3 class="card-title">블루투스 이어폰 사세요!</h3>
-					<hr>
-					<small class="text-right">가격 : 50000원/개</small><hr>
-					<p class="card-text">이 이어폰은 세상의 아름답고 감미로운 소리를 들을 수 있습니다. 힐링하고 싶다면 지금 당장 구입하세요.!!</p>
+				<hr>
+				<small class="text-right">가격 : 50000원/개</small><hr>
+				<p class="card-text">이 이어폰은 세상의 아름답고 감미로운 소리를 들을 수 있습니다. 힐링하고 싶다면 지금 당장 구입하세요.!!</p>
+			</div>
+			<div class="card-body">
+				<div class="input-group input-group-sm mb-3">
+					<div class="input-group-prepend">
+						<span class="input-group-text" id="insert_name" >주문자 이름</span>
+					</div>
+					<input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="insert_name" id="user_name">
 				</div>
-				<div class="card-body">
-					<div class="input-group input-group-sm mb-3">
-						<div class="input-group-prepend">
-							<span class="input-group-text" id="insert_name" >주문자 이름</span>
-						</div>
-						<input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="insert_name" id="user_name">
+				<div class="input-group mb-3">
+					<div class="input-group-prepend">
+						<label class="input-group-text" for="select_number">수량</label>
 					</div>
-					<div class="input-group mb-3">
-						<div class="input-group-prepend">
-							<label class="input-group-text" for="select_number">수량</label>
-						</div>
-						<select class="custom-select" id="select_number">
-							<option selected value="0">--개수를 선택하세요--</option>
-							<option value="1">1개</option>
-							<option value="2">2개</option>
-							<option value="3">3개</option>
-							<option value="4">4개</option>
-							<option value="5">5개</option>
-						</select>
-					</div>
-					<div class="input-group flex-nowrap mb-3">
-						<div class="input-group-prepend">
-							<span class="input-group-text" id="insert_email">이메일</span>
-						</div>
-						<input type="email" class="form-control" placeholder="name@example.com" aria-label="Username" aria-describedby="insert_email" id="user_email">
-					</div>
-					<div class="input-group input-group-sm mb-3">
-						<div class="input-group-prepend">
-							<span class="input-group-text" id="insert_addr">주소</span>
-						</div>
-						<input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="insert_addr" id="user_addr">
-					</div>
-					<div class="input-group input-group-sm mb-3">
-						<div class="input-group-prepend">
-							<span class="input-group-text" id="insert_tel">전화번호</span>
-						</div>
-						<input type="tel" placeholder=" '-'을 제외한 휴대폰번호를 입력해 주세요" class="form-control" aria-label="Sizing example input" aria-describedby="insert_tel" id="user_tel">
-					</div>
-						<div class="input-group input-group-sm mb-3">
-						<div class="input-group-prepend">
-							<span class="input-group-text" id="insert_birth">생년월일</span>
-						</div>
-						<input type="date"  class="form-control" aria-label="Sizing example input" aria-describedby="insert_birth" id="user_birth">
-					</div>
-					<div class="form-group form-check">
-						<input type="checkbox" class="form-check-input" id="agree_check">
-						<label class="form-check-label" for="agree_check">구매에 동의 하십니까?</label>
-					</div>
+					<select class="custom-select" id="select_number">
+						<option selected value="0">--개수를 선택하세요--</option>
+						<option value="1">1개</option>
+						<option value="2">2개</option>
+						<option value="3">3개</option>
+						<option value="4">4개</option>
+						<option value="5">5개</option>
+					</select>
 				</div>
-				<div class="card-body text-center">
-					<div class="btn btn-warning" onclick="total_check()">
-						주문하기
+				<div class="input-group flex-nowrap mb-3">
+					<div class="input-group-prepend">
+						<span class="input-group-text" id="insert_email">이메일</span>
 					</div>
+					<input type="email" class="form-control" placeholder="name@example.com" aria-label="Username" aria-describedby="insert_email" id="user_email">
+				</div>
+				<div class="input-group input-group-sm mb-3">
+					<div class="input-group-prepend">
+						<span class="input-group-text" id="insert_addr">주소</span>
+					</div>
+					<input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="insert_addr" id="user_addr">
+				</div>
+				<div class="input-group input-group-sm mb-3">
+					<div class="input-group-prepend">
+						<span class="input-group-text" id="insert_tel">전화번호</span>
+					</div>
+					<input type="tel" placeholder=" '-'을 제외한 휴대폰번호를 입력해 주세요" class="form-control" aria-label="Sizing example input" aria-describedby="insert_tel" id="user_tel">
+				</div>
+				<div class="input-group input-group-sm mb-3">
+					<div class="input-group-prepend">
+						<span class="input-group-text" id="insert_birth">생년월일</span>
+					</div>
+					<input type="date"  class="form-control" aria-label="Sizing example input" aria-describedby="insert_birth" id="user_birth">
+				</div>
+				<div class="form-group form-check">
+					<input type="checkbox" class="form-check-input" id="agree_check">
+					<label class="form-check-label" for="agree_check">구매에 동의 하십니까?</label>
+				</div>
+			</div>
+			<div class="card-body text-center">
+				<div class="btn btn-warning" onclick="total_check()">
+					주문하기
 				</div>
 			</div>
 		</div>
-		<div class="card-body text-center jumbotron wrap">
-			<table class="table">
-				<thead>
-					<tr>
-						<th>이름</th>
-						<th>수량</th>
-						<th>주소</th>
-						<th>전화번호</th>
-					</tr>
-				</thead>
-				<tbody id ="order">
-				</tbody>
-			</table>
-		</div>
-	</body>
+	</div>
+	<div class="card-body text-center jumbotron wrap">
+		<table class="table">
+			<thead>
+				<tr>
+					<th>이름</th>
+					<th>수량</th>
+					<th>주소</th>
+					<th>전화번호</th>
+				</tr>
+			</thead>
+			<tbody id ="order">
+			</tbody>
+		</table>
+	</div>
+</body>
 </html>
