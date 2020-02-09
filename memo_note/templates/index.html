@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="en">
+<head>
+
+  <!-- Webpage Title -->
+  <title>메모해야 성공한다</title>
+
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <!-- 구글 웹폰트 -->
+  <link href="https://fonts.googleapis.com/css?family=Jua&display=swap" rel="stylesheet">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+  <!-- JS -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  <style>
+    .wrap{
+        width:900px;
+        margin:auto;
+        font-family: 'Jua', sans-serif;
+    }
+   .comment {
+      color: blue;
+      font-weight: bold;
+    }
+    h5.card-title{
+        text-align: center;
+    }
+    p.card-body{
+        text-align: center;
+    }
+    .form-post {
+      max-width: 500px;
+      padding: 2rem;
+      margin: 2rem auto;
+      border-color: #e9ecef;
+      border-radius: 0.3rem;
+      border: solid;
+      display: block;
+    }
+    #post-box {
+      display: none;
+    }
+</style>
+<script>
+    $(document).ready(function(){
+        $('#card-box').html('');
+        listing()
+    })
+    function posting(){
+        let url = $("#post_url").val()
+        let comment = $("#post_comment").val()
+        
+        $.ajax({
+            type: "POST",
+            url: "/post",
+            data: {
+                url_give : url,
+                comment_give: comment
+            },
+            success: function(response){
+                if(response['result'] == 'success'){
+                    alert("포스팅 성공")
+                    window.location.reload()
+                } else{
+                    alert("서버오류")
+               }   
+            }   
+        })
+    }
+                      
+    function listing(){
+        $.ajax({
+            type: "GET",
+            url: "/post",
+            data:{},
+            success: function(response){
+                let articles = response['articles']
+                for(let i = 0; i < articles.length; i++){ 
+                    makeCard(articles[i]['comment'],articles[i]['description'],articles[i]['image'],articles[i]['title'],articles[i]['url'])
+                }
+            }
+        })
+    }
+    function makeCard(comment,description,image,title,url){
+        let temp_html = 
+            '<div class="card"><img class="card-img-top" src="'+ image +'" alt="card image cap"><div class="card-body"><a href="' + url + '" target="_blank" class="card-title">' + title + '</a><p class="card-text">' + description + '</p><p class="card-text comment">' + comment + '</p></div></div>'
+        $('#card-box').append(temp_html)
+        
+    }
+
+    function openBox(){
+        if($("#post-box").css("display") == "none"){
+            $("#post-box").show()
+            $("#open_button").text("포스팅 박스 닫기")
+        } else{
+            $("#post-box").hide()
+            $("#open_button").text("포스팅 박스 열기")
+        }
+    }
+</script>
+
+</head>
+<body>
+    <div class="wrap" id="blog">
+        <div class="content jumbotron text-center font-weight-bolder">
+            <H2 class="display-4">나만의 링크 메모장!</H2>
+            <h5 class="lead">
+                나만의 URL을 저장하는 메모장입니다.
+            </h5>
+            <hr class="my-4">
+            <p class="lead">
+                관심있는 url을 가져다가 포스팅 해보세요!!
+            </p>
+            <p class="lead">
+                <a class="btn btn-warning btn-lg" href="#" role="button" id="open_button" onclick="openBox()">포스팅 박스 열기</a>
+            </p>
+        </div>
+        <div class="form-post" id="post-box">
+            <div>
+                <div class="form-group">
+                    <label for="exampleFormControlInput1">아티클 URL</label>
+                    <input class="form-control" id="post_url" placeholder="">
+                </div>
+                <div class="form-group">
+                    <label for="exampleFormControlTextarea1">간단 코멘트</label>
+                    <textarea class="form-control" id="post_comment" rows="2"></textarea>
+                </div>
+                <div class="text-center">
+                    <button type="button" class="btn btn-warning" onclick="posting()">기사저장</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="card-columns text-center font-italic" id="card-box">
+            <div class="card border-warning bg-warning">
+                <img class="card-img-top" src="https://www.eurail.com/content/dam/images/eurail/Italy%20OCP%20Promo%20Block.adaptive.767.1535627244182.jpg" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">
+                        기사 제목이 들어가요
+                    </h5>
+                    <p class="card-body">
+                        원하는 기사의 제목을 넣으면 기사가 들어갑니다.
+                    </p>
+                </div>
+            </div>
+            <div class="card border-warning bg-warning">
+                <img class="card-img-top" src="https://www.eurail.com/content/dam/images/eurail/Italy%20OCP%20Promo%20Block.adaptive.767.1535627244182.jpg" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">
+                        기사 제목이 들어가요
+                    </h5>
+                    <p class="card-body">
+                        원하는 기사의 제목을 넣으면 기사가 들어갑니다.
+                    </p>
+                </div>
+            </div>
+            <div class="card border-warning bg-warning">
+                <img class="card-img-top" src="https://www.eurail.com/content/dam/images/eurail/Italy%20OCP%20Promo%20Block.adaptive.767.1535627244182.jpg" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">
+                        기사 제목이 들어가요
+                    </h5>
+                    <p class="card-body">
+                        원하는 기사의 제목을 넣으면 기사가 들어갑니다.
+                    </p>
+                </div>
+            </div>
+            <div class="card border-warning bg-warning">
+                <img class="card-img-top" src="https://www.eurail.com/content/dam/images/eurail/Italy%20OCP%20Promo%20Block.adaptive.767.1535627244182.jpg" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">
+                        기사 제목이 들어가요
+                    </h5>
+                    <p class="card-body">
+                        원하는 기사의 제목을 넣으면 기사가 들어갑니다.
+                    </p>
+                </div>
+            </div>
+            <div class="card border-warning bg-warning">
+                <img class="card-img-top" src="https://www.eurail.com/content/dam/images/eurail/Italy%20OCP%20Promo%20Block.adaptive.767.1535627244182.jpg" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">
+                        기사 제목이 들어가요
+                    </h5>
+                    <p class="card-body">
+                        원하는 기사의 제목을 넣으면 기사가 들어갑니다.
+                    </p>
+                </div>
+            </div>
+            <div class="card border-warning bg-warning">
+                <img class="card-img-top" src="https://www.eurail.com/content/dam/images/eurail/Italy%20OCP%20Promo%20Block.adaptive.767.1535627244182.jpg" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">
+                        기사 제목이 들어가요
+                    </h5>
+                    <p class="card-body">
+                        원하는 기사의 제목을 넣으면 기사가 들어갑니다.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
