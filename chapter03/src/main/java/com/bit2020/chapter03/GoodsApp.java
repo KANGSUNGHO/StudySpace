@@ -9,8 +9,13 @@ public class GoodsApp {
 		camera.setPrice(30000);
 		camera.setCountSold(20);
 		camera.setCountStock(30);
-		System.out.println(Goods.countofGoods);
-
+		
+		Goods camera1 = new Goods();
+		Goods camera2 = new Goods();
+		Goods camera3 = new Goods();
+		
+		camera.showInfo();
+		System.out.println(camera.calculateDiscountPrice(0.5));
 	}
 
 }
