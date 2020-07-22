@@ -34,6 +34,10 @@ public class MainApp {
 
 		Triangle triangle = new Triangle();
 		drawShape(triangle);
+		
+		System.out.println("=======================");
+		Circle circle = new Circle();
+		drawShape(circle);
 	}
 
 	public static void drawPoint(Point pt) {
