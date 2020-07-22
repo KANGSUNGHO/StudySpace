@@ -7,10 +7,13 @@ public class MainApp {
 		int y = 200;
 		
 		Point point1 = new Point();
-		point1.setX(100);
-		point1.setY(200);
+		point1.setX(x);
+		point1.setY(y);
+		
+		Point point2 = new Point(50,50);
 		
 		drawPoint(point1);
+		drawPoint(point2);
 
 	}
 	
