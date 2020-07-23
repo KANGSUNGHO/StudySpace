@@ -1,4 +1,4 @@
-package com.bit2020.chapter03.paint;
+package com.bit2020.paint.point;
 
 public class ColorPoint extends Point {
 	private String color;

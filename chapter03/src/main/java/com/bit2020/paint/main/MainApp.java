@@ -1,4 +1,13 @@
-package com.bit2020.chapter03.paint;
+package com.bit2020.paint.main;
+
+import com.bit2020.paint.i.Drawable;
+import com.bit2020.paint.point.ColorPoint;
+import com.bit2020.paint.point.Point;
+import com.bit2020.paint.shape.Circle;
+import com.bit2020.paint.shape.Rect;
+import com.bit2020.paint.shape.Shape;
+import com.bit2020.paint.shape.Triangle;
+import com.bit2020.paint.text.GraphicText;
 
 public class MainApp {
 

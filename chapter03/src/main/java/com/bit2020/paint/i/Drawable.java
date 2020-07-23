@@ -1,4 +1,4 @@
-package com.bit2020.chapter03.paint;
+package com.bit2020.paint.i;
 
 public interface Drawable {
 	public void draw();

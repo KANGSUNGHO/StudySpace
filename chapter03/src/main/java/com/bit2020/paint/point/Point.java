@@ -1,4 +1,6 @@
-package com.bit2020.chapter03.paint;
+package com.bit2020.paint.point;
+
+import com.bit2020.paint.i.Drawable;
 
 public class Point implements Drawable{
 	private int x;
