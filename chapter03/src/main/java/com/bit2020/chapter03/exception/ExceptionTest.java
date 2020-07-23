@@ -21,6 +21,7 @@ public class ExceptionTest {
 			
 			// 2. 로그 남기기(파일, DB)
 			System.out.println(ex);
+//			ex.printStackTrace();
 			
 			// 3. 정상 종료
 			return;
