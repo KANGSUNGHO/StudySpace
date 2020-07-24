@@ -14,7 +14,7 @@ public class CalendarTest {
 		cal.set(Calendar.DATE, 25);
 		printDate(cal);
 		
-		cal.set(2018,10,18);
+		cal.set(2018,10,18); // 여자친구 만난 날짜나 기념일 D-day 입
 		cal.add(Calendar.DATE, 600);
 		printDate(cal);
 
