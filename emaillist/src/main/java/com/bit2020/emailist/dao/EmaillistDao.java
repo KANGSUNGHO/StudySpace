@@ -62,7 +62,7 @@ public class EmaillistDao {
 		return result;
 	}
 
-	public List<EamillistVo> selectList() {
+	public List<EamillistVo> findAll() {
 		List<EamillistVo> result = new ArrayList<>();
 		Connection connection = null;
 		Statement stmt = null;

@@ -33,5 +33,6 @@
 	<modules>
 		<module>helloweb</module>
 		<module>emaillist</module>
+		<module>guestbook01</module>
 	</modules>
 </project>
