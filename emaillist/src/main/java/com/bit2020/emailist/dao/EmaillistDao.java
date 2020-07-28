@@ -22,7 +22,7 @@ public class EmaillistDao {
 
 			// 2. 연결하기
 			String url = "jdbc:mysql://127.0.0.1:3306/webdb?characterEncoding=utf8";
-			connection = DriverManager.getConnection(url, "webdb", "webdb");
+			connection = DriverManager.getConnection(url, "webdb", "webdb"); //(url,dbname, dbpassword)
 
 			System.out.println("연결성공");
 

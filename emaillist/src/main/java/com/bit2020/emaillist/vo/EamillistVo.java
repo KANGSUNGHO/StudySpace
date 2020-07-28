@@ -10,13 +10,8 @@ public class EamillistVo {
 	}
 	@Override
 	public String toString() {
-		return "EamillistVo [no =" + no + ", firstName= " + firstName +", lastName= "
+		return "EamillistVo [no =" + no + ", firstName = " + firstName + ", lastName = "
 				+ lastName + ", email= " + email + "]";
-	}
-	@Override
-	protected void finalize() throws Throwable {
-		// TODO Auto-generated method stub
-		super.finalize();
 	}
 	public void setNo(Long no) {
 		this.no = no;
