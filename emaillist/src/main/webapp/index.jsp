@@ -15,7 +15,7 @@
 	<p>입력한 정보 내역입니다.</p>
 	
 	<%
-		for(EamillistVo vo:list){
+		for(EamillistVo vo:list){ // 렌더
 	%>
 	<!-- 메일정보 리스트 -->
 		<table border="1" cellpadding="5" cellspacing="2">
