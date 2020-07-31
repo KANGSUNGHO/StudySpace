@@ -1,5 +1,11 @@
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>  
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%
+	pageContext.setAttribute("newline","\n");
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,7 +18,12 @@
 	${lVal  } <br>
 	${fVal  } <br>
 	${bVal  } <br>
-	${sVal  } <br>
+
+
+	<p style='width:200px; height:150px; border:1px solid #0000ff'>
+		${fn:replace(sVal, newline, "<br>")}
+	</p>
+
 	---${obj }--<br>
 	${userVo.no } <br>
 	${userVo.name} <br>
