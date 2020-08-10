@@ -29,6 +29,7 @@ def crawling_pelicana():
             sidogu = address.split()[0:2]
 
             t = (name, address) + tuple(sidogu)
+
             results.append(t)
 
     # store
@@ -69,17 +70,41 @@ def crawling_goobne():
     pass
 
 def crawling_nene():
-    url = 'https://nenechicken.com/17_new/sub_shop01.asp?page=1'
-    html = crawler.crawling(url)
-    print(html)
+    results = []
+    for page in count(start=1, step=1):
+        url = 'https://nenechicken.com/17_new/sub_shop01.asp?page=%d'%page
+        html = crawler.crawling(url)
+
+        bs = BeautifulSoup(html,'html.parser')
+        divs = bs.findAll('div', attrs={'class':'shopInfo'})
+
+        for div in divs:
+            div_shop = div.find('div', attrs={'class':'shopName'})
+            div_add = div.find('div', attrs={'class':'shopAdd'})
+            name = list(div_shop.strings)[0]
+            # print(name)
+            address = list(div_add.strings)[0]
+            sidogu = address.split()[0:2]
+            # print(sidogu)
+
+            t = (name, address) + tuple(sidogu)
+            # print(t)
+            results.append(t)
+
+        if (page >= 47) and (name == '서울구로구고척스카이돔점'):
+            break
+    # store
+    table = pd.DataFrame(results,columns=['name','address','sido','gugun'])
+    table.to_csv('results/nene.csv',encoding='utf-8', mode='w', index=True)
 if __name__ == '__main__':
     # pelicana
     # crawling_pelicana()
 
     # nene
-    # crawling_nene()
+    crawling_nene()
 
 
     # kyochon
-    crawling_kyochon()
+    # crawling_kyochon()
+
     # goobne
