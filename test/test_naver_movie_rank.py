@@ -23,7 +23,7 @@ def proc_error(e):
     print('crawlling error: ', e)
 
 def ex02():
-    html = crawler.crawlling(url='http://movie.naver.com/movie/sdb/rank/rmovie.nhn',encoding='cp949')
+    html = crawler.crawling(url='http://movie.naver.com/movie/sdb/rank/rmovie.nhn',encoding='cp949')
 
     bs = BeautifulSoup(html, 'html.parser')
     divs = bs.findAll('div', attrs={'class': 'tit3'})
