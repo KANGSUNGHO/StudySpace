@@ -11,7 +11,7 @@ from urllib.request import Request, urlopen
 
 def crawling(url='',encoding='utf-8', err=lambda e: print(f'{e} : {datetime.now()}', file=sys.stderr)):
     try:
-        context = ssl._create_unverified_context()
+        context = ssl._create_unverified_context()  # ssl 의존성 추가
         request = Request(url)
         response = urlopen(request,context=context)
         print(f'{datetime.now()} : success for request[{url}]')
