@@ -1,8 +1,13 @@
+from datetime import datetime
 from itertools import count
 
 from bs4 import BeautifulSoup
 
 from collection import crawler
+
+from selenium import webdriver
+
+import time
 
 import pandas as pd
 
@@ -66,8 +71,6 @@ def crawling_kyochon():
     # store
     table = pd.DataFrame(results,columns=['name','address','sido','gugun'])
     table.to_csv('results/kychon.csv', encoding='utf-8',mode='w', index=True)
-def crawling_goobne():
-    pass
 
 def crawling_nene():
     results = []
@@ -96,15 +99,61 @@ def crawling_nene():
     # store
     table = pd.DataFrame(results,columns=['name','address','sido','gugun'])
     table.to_csv('results/nene.csv',encoding='utf-8', mode='w', index=True)
+
+def crawling_goobne():
+    url = 'http://www.goobne.co.kr/store/search_store.jsp'
+
+    # 첫 페이지 로딩
+    wd = webdriver.Chrome('/Applications/gachon2020/chromedriver')
+    wd.get(url)
+    time.sleep(2)
+
+    results  = []
+    for page in count(start=1,step=1):
+        # 자바스크립트 실행
+        script = 'store.getList(%d)'%page
+        wd.execute_script(script)
+        print(f'{datetime.now()} : success for request[{script}]')
+        time.sleep(2)
+
+        # 자바스크립트 실행결과 HTML(동적으로 렌더링 된 HTML) 가져오기
+        html = wd.page_source
+
+        # parsing with bs4
+        bs = BeautifulSoup(html, 'html.parser')
+        tag_tbody = bs.find('tbody', attrs={'id':'store_list'})
+        tags_tr = tag_tbody.findAll('tr')
+
+        # 끝 검출
+        if tags_tr[0].get('class') is None:
+            break
+
+        for tag_tr in tags_tr:
+            strings = list(tag_tr.strings)
+            name = strings[1]
+            address = strings[6]
+            sidogu = address.split()[0:2]
+
+            t = (name,address) + tuple(sidogu)
+            results.append(t)
+
+    wd.quit()
+
+    # store
+    table = pd.DataFrame(results,columns=['name','address','sido','gugun'])
+    table.to_csv('results/goobne.csv',encoding='utf-8', mode='w', index=True)
+
+
 if __name__ == '__main__':
-    # pelicana
+    # 페리카나
     # crawling_pelicana()
 
-    # nene
-    crawling_nene()
+    # 네체치킨
+    # crawling_nene()
 
 
-    # kyochon
+    # 교촌치킨
     # crawling_kyochon()
 
-    # goobne
+    # 굽네치킨
+    crawling_goobne()
