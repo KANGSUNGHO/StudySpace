@@ -38,4 +38,16 @@
         
     - SQL server
         - SAVE TRANSACTION svtr1;
-        - ROLLBACK TRANSACTION svtr1; 
+        - ROLLBACK TRANSACTION svtr1;
+ 
+ - 결과가 NULL이 나오는 경우
+    - (1) SELECT CASE 'AB' WHEN 'BC' THEN 'CD' END FROM DUAL;
+        - ex) CASE 'A' WHEN 'B' THEN 'C' ELSE 'D' END
+             <br> 만약에 A가 B라면 C를 출력하고 아니면 D를 출력하라. 여기서 ELSE 'D'는 생략 가능하고 생략한다면 NULL로 처리함.
+    - (2) SELECT DECODE ('AB', 'CD', 'DE') FROM DUAL;
+        - ex) DECODE('A','B','C','D')
+             <br> 만약에 A가 B라면 C를 출력하고 아니면 D를 출력하라. 여기서 'D'는 생략가능하고 생략한다면 NULL로 처리함.
+             
+    - (3) SELECT NULLIF('AB','AB') FROM DUAL;
+        - ex) NULLIF('A','B')
+             <br> 'A'가 'B'랑 같으면 NULL을 출력함.          
