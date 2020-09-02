@@ -60,7 +60,8 @@
            |100|100|
            |NULL|60|
            |NULL|NULL|
-           <br> SELECT(col1, col2*50, 50) FROM TABLE;
+           
+           SELECT(col1, col2*50, 50) FROM TABLE;
            - 첫번째행 COALESCE(100,100*50, 50)이고 첫번째 값이 100이므로 => 100
            - 두번째행 COALESCE(NULL,60 * 50, 50)이고 NULL이 아닌 값이 60*50이므로 => 3000
            - 세번째행 COALESCE(NULL,NULL * 50, 50)이니 첫번째, 두번째 NULL이니 세번째 값 => 50
