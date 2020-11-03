@@ -1,0 +1,23 @@
+#분석도전 변형(p 123)
+midwest <- as.data.frame(ggplot2::midwest)
+head(midwest)
+tail(midwest)
+dim(midwest)
+str(midwest)
+summary(midwest)
+person_midwest <- midwest
+person_midwest <- rename(person_midwest, whole = poptotal)
+person_midwest <- rename(person_midwest, white = popwhite)
+person_midwest <- rename(person_midwest, black = popblack)
+head(person_midwest,2)
+person_midwest$wperson <-(person_midwest$white / person_midwest$whole)
+person_midwest$bperson <-(person_midwest$black / person_midwest$whole)
+hist(person_midwest$wperson)
+hist(person_midwest$bperson)
+person_avg <- (person_midwest$wperson + person_midwest$bperson)/2
+person_avg
+mean(person_midwest$wperson + person_midwest$bperson)
+person_size <- ifelse(person_midwest$wperson > 0.9823476,"bigwhite","smallblack")
+table(person_size)
+qplot(person_size)
+head(person_midwest,2)
