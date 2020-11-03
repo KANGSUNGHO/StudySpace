@@ -1,0 +1,51 @@
+package javabook;
+// 가장 빠른 정렬인 퀵소트
+public class Sort {
+	
+	private static void quickSort(int[] arr) {
+		quickSort(arr, 0, arr.length - 1); // 시작위치와 끝나는 지점을 정해 재귀함수를 호출
+	}
+	private static void quickSort(int[] arr, int start, int end) { 
+		int part2 = partition(arr,start,end);
+		if(start < part2 - 1) {
+			quickSort(arr, start, part2 - 1);
+		}
+		if(part2 < end) {
+			quickSort(arr, part2, end);
+		}
+	}
+	private static int partition(int[] arr, int start, int end) {
+		int pivot = arr[(start + end) / 2]; //시작과 끝을 더해 2를 나눠 중간을 구함
+		while(start <= end) {
+			while(arr[start] < pivot) start++; //피벗보다 작으면 start 증가
+			while(arr[end] > pivot) end--; //피벗보다 크면 end 감소
+		
+		if(start <= end) { //시작점과 끝점이 만났다가 지난건 아닌지 확인
+			swap(arr, start, end);
+			start++;
+			end--;
+			}
+		}
+		return start;
+	}
+	private static void swap(int[] arr, int start, int end) {//시작과 끝 교환
+		int tmp = arr[start];
+		arr[start] = arr[end];
+		arr[end] = tmp; 
+	}
+	private static void printArray(int[] arr) { //출력함수
+		for(int data : arr) { //
+			System.out.print(data + ",");
+		}
+		System.out.println();
+	}
+	public static void main(String[] args) { //메인함수
+		// TODO Auto-generated method stub
+		int[] arr = {10,50,3,75,12,1,32,44,18,25};
+		 printArray(arr);
+		 quickSort(arr);
+		 printArray(arr);
+
+	}
+
+}

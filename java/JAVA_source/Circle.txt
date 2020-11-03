@@ -1,0 +1,36 @@
+package javabook;
+//원의 좌표와 반지름 구하기
+public class Circle extends Point{
+
+	int rad;
+
+	public Circle(int x, int y, int r) {
+		super(x,y);
+		rad = r;
+	}
+	public void showCircleInfo() {
+		showPointInfo();
+		System.out.println("[" + rad + "]");
+	}
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Circle c = new Circle(2,2,4);
+		c.showCircleInfo();
+
+	}
+	
+
+}
+
+class Point{
+		int xPos, yPos;
+		public Point(int x, int y){
+			xPos = x;
+			yPos = y;
+		}
+		public void showPointInfo() {
+			System.out.println("[" + xPos + ", " + yPos + "]");
+		}
+		
+	}
