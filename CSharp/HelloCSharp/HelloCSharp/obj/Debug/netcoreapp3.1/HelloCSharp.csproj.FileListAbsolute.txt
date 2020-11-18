@@ -1,0 +1,12 @@
+/Users/sungho/Documents/study/StudySpace/CSharp/HelloCSharp/HelloCSharp/bin/Debug/netcoreapp3.1/HelloCSharp.deps.json
+/Users/sungho/Documents/study/StudySpace/CSharp/HelloCSharp/HelloCSharp/bin/Debug/netcoreapp3.1/HelloCSharp.runtimeconfig.json
+/Users/sungho/Documents/study/StudySpace/CSharp/HelloCSharp/HelloCSharp/bin/Debug/netcoreapp3.1/HelloCSharp.runtimeconfig.dev.json
+/Users/sungho/Documents/study/StudySpace/CSharp/HelloCSharp/HelloCSharp/bin/Debug/netcoreapp3.1/HelloCSharp.dll
+/Users/sungho/Documents/study/StudySpace/CSharp/HelloCSharp/HelloCSharp/bin/Debug/netcoreapp3.1/HelloCSharp.pdb
+/Users/sungho/Documents/study/StudySpace/CSharp/HelloCSharp/HelloCSharp/obj/Debug/netcoreapp3.1/HelloCSharp.csprojAssemblyReference.cache
+/Users/sungho/Documents/study/StudySpace/CSharp/HelloCSharp/HelloCSharp/obj/Debug/netcoreapp3.1/HelloCSharp.AssemblyInfoInputs.cache
+/Users/sungho/Documents/study/StudySpace/CSharp/HelloCSharp/HelloCSharp/obj/Debug/netcoreapp3.1/HelloCSharp.AssemblyInfo.cs
+/Users/sungho/Documents/study/StudySpace/CSharp/HelloCSharp/HelloCSharp/obj/Debug/netcoreapp3.1/HelloCSharp.csproj.CoreCompileInputs.cache
+/Users/sungho/Documents/study/StudySpace/CSharp/HelloCSharp/HelloCSharp/obj/Debug/netcoreapp3.1/HelloCSharp.dll
+/Users/sungho/Documents/study/StudySpace/CSharp/HelloCSharp/HelloCSharp/obj/Debug/netcoreapp3.1/HelloCSharp.pdb
+/Users/sungho/Documents/study/StudySpace/CSharp/HelloCSharp/HelloCSharp/obj/Debug/netcoreapp3.1/HelloCSharp.genruntimeconfig.cache
