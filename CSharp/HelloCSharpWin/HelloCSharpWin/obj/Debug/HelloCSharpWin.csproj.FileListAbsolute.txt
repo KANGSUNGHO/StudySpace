@@ -7,3 +7,12 @@ c:\users\user\documents\visual studio 2015\Projects\HelloCSharpWin\HelloCSharpWi
 c:\users\user\documents\visual studio 2015\Projects\HelloCSharpWin\HelloCSharpWin\obj\Debug\HelloCSharpWin.csproj.GenerateResource.Cache
 c:\users\user\documents\visual studio 2015\Projects\HelloCSharpWin\HelloCSharpWin\obj\Debug\HelloCSharpWin.exe
 c:\users\user\documents\visual studio 2015\Projects\HelloCSharpWin\HelloCSharpWin\obj\Debug\HelloCSharpWin.pdb
+C:\Users\User\Desktop\study\CSharp\HelloCSharpWin\HelloCSharpWin\bin\Debug\HelloCSharpWin.exe.config
+C:\Users\User\Desktop\study\CSharp\HelloCSharpWin\HelloCSharpWin\obj\Debug\HelloCSharpWin.exe
+C:\Users\User\Desktop\study\CSharp\HelloCSharpWin\HelloCSharpWin\obj\Debug\HelloCSharpWin.pdb
+C:\Users\User\Desktop\study\CSharp\HelloCSharpWin\HelloCSharpWin\bin\Debug\HelloCSharpWin.exe
+C:\Users\User\Desktop\study\CSharp\HelloCSharpWin\HelloCSharpWin\bin\Debug\HelloCSharpWin.pdb
+C:\Users\User\Desktop\study\CSharp\HelloCSharpWin\HelloCSharpWin\obj\Debug\HelloCSharpWin.csprojResolveAssemblyReference.cache
+C:\Users\User\Desktop\study\CSharp\HelloCSharpWin\HelloCSharpWin\obj\Debug\HelloCSharpWin.Form1.resources
+C:\Users\User\Desktop\study\CSharp\HelloCSharpWin\HelloCSharpWin\obj\Debug\HelloCSharpWin.Properties.Resources.resources
+C:\Users\User\Desktop\study\CSharp\HelloCSharpWin\HelloCSharpWin\obj\Debug\HelloCSharpWin.csproj.GenerateResource.Cache
