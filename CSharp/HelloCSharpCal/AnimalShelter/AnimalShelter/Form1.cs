@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,8 +13,7 @@ namespace AnimalShelter
 {
     public partial class Form1 : Form
     {
-        public Customer[] CustomerArray = new Customer[10];
-        public int CustomerArrayIndex = 0;
+        public List<Customer> Customers = new List<Customer>();
 
         public Form1()
         {
@@ -23,14 +23,20 @@ namespace AnimalShelter
         private void CreateCustomer_Click(object sender, EventArgs e)
         {
 
-            CustomerArray[CustomerArrayIndex] = new AnimalShelter.Customer(CusNewFirstName.Text,CusNewLastName.Text ,
+            Customer cus  = new AnimalShelter.Customer(CusNewFirstName.Text,CusNewLastName.Text ,
                 DateTime.Parse(CusNewBirthDay.Text));
-            CustomerArray[CustomerArrayIndex].Address = CusNewAddress.Text;
-            CustomerArray[CustomerArrayIndex].Description = CusNewDescription.Text;
+            cus.Address = CusNewAddress.Text;
+            cus.Description = CusNewDescription.Text;
 
-            CustomerList.Items.Add(CustomerArray[CustomerArrayIndex].FirstName);
-            CustomerArrayIndex++;
+           CusListPanel.Rows.Add(cus.FirstName, cus.Age1, cus.IsQualified1);
 
+            Customers.Add(cus);
+
+            CusNewFirstName.Text = "";
+            CusNewLastName.Text = "";
+            CusNewBirthDay.Text = "";
+            CusNewAddress.Text = "";
+            CusNewDescription.Text = "";
          
         }
         public void ShowDetails(Customer cus)
@@ -42,18 +48,37 @@ namespace AnimalShelter
             CusIsQualified.Text = cus.IsQualified1.ToString();
         }
 
-        private void CustomerList_Click(object sender, EventArgs e)
-        {
-            string firstName = CustomerList.SelectedItem.ToString();
 
-            for(int i = 0; i < CustomerArrayIndex; i++)
+        private void CusList_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            string firstName = (string)CusListPanel.Rows[e.RowIndex].Cells[0].Value;
+
+            foreach (Customer cus in Customers)
             {
-                if( CustomerArray[i].FirstName == firstName)
+                if (cus.FirstName == firstName)
                 {
-                    ShowDetails(CustomerArray[i]);
+                    ShowDetails(cus);
                     break;
                 }
             }
+            CusDetailPanel.Show();
+            CusNewPanel.Hide();
+
         }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            CusListPanel.Dock = DockStyle.Fill;
+            CusDetailPanel.Dock = DockStyle.Right;
+            CusNewPanel.Dock = DockStyle.Right;
+        }
+
+        private void ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CusNewPanel.Show();
+            CusDetailPanel.Hide();
+
+        }
+
     }
 }
