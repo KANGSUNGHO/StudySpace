@@ -30,23 +30,36 @@
         {
             this.CreateCustomer = new System.Windows.Forms.Button();
             this.CusDetailPanel = new System.Windows.Forms.Panel();
-            this.CusLastName = new System.Windows.Forms.Label();
-            this.CusFullName = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.CusAge = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.CusAddress = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.CusDescription = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
             this.CusIsQualified = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.CusDescription = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.CusAddress = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.CusAge = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.CusFullName = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.CusLastName = new System.Windows.Forms.Label();
+            this.CusNewPanel = new System.Windows.Forms.Panel();
+            this.CusNewLastName = new System.Windows.Forms.TextBox();
+            this.CusNewFirstName = new System.Windows.Forms.TextBox();
+            this.CusNewBirthDay = new System.Windows.Forms.TextBox();
+            this.CusNewAddress = new System.Windows.Forms.TextBox();
+            this.CusNewDescription = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.CustomerList = new System.Windows.Forms.ListBox();
             this.CusDetailPanel.SuspendLayout();
+            this.CusNewPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // CreateCustomer
             // 
-            this.CreateCustomer.Location = new System.Drawing.Point(35, 45);
+            this.CreateCustomer.Location = new System.Drawing.Point(247, 320);
             this.CreateCustomer.Name = "CreateCustomer";
             this.CreateCustomer.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.CreateCustomer.Size = new System.Drawing.Size(128, 30);
@@ -68,90 +81,10 @@
             this.CusDetailPanel.Controls.Add(this.CusFullName);
             this.CusDetailPanel.Controls.Add(this.label3);
             this.CusDetailPanel.Controls.Add(this.CusLastName);
-            this.CusDetailPanel.Location = new System.Drawing.Point(200, 12);
+            this.CusDetailPanel.Location = new System.Drawing.Point(552, 12);
             this.CusDetailPanel.Name = "CusDetailPanel";
             this.CusDetailPanel.Size = new System.Drawing.Size(373, 379);
             this.CusDetailPanel.TabIndex = 1;
-            // 
-            // CusLastName
-            // 
-            this.CusLastName.AutoSize = true;
-            this.CusLastName.Location = new System.Drawing.Point(125, 44);
-            this.CusLastName.Name = "CusLastName";
-            this.CusLastName.Size = new System.Drawing.Size(0, 18);
-            this.CusLastName.TabIndex = 1;
-            // 
-            // CusFullName
-            // 
-            this.CusFullName.AutoSize = true;
-            this.CusFullName.Location = new System.Drawing.Point(125, 45);
-            this.CusFullName.Name = "CusFullName";
-            this.CusFullName.Size = new System.Drawing.Size(54, 18);
-            this.CusFullName.TabIndex = 3;
-            this.CusFullName.Text = "label2";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(25, 45);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(50, 18);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "이름:";
-            // 
-            // CusAge
-            // 
-            this.CusAge.AutoSize = true;
-            this.CusAge.Location = new System.Drawing.Point(125, 82);
-            this.CusAge.Name = "CusAge";
-            this.CusAge.Size = new System.Drawing.Size(54, 18);
-            this.CusAge.TabIndex = 5;
-            this.CusAge.Text = "label2";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(25, 82);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(50, 18);
-            this.label4.TabIndex = 4;
-            this.label4.Text = "나이:";
-            // 
-            // CusAddress
-            // 
-            this.CusAddress.AutoSize = true;
-            this.CusAddress.Location = new System.Drawing.Point(125, 156);
-            this.CusAddress.Name = "CusAddress";
-            this.CusAddress.Size = new System.Drawing.Size(54, 18);
-            this.CusAddress.TabIndex = 7;
-            this.CusAddress.Text = "label2";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(25, 156);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(50, 18);
-            this.label5.TabIndex = 6;
-            this.label5.Text = "주소:";
-            // 
-            // CusDescription
-            // 
-            this.CusDescription.AutoSize = true;
-            this.CusDescription.Location = new System.Drawing.Point(125, 198);
-            this.CusDescription.Name = "CusDescription";
-            this.CusDescription.Size = new System.Drawing.Size(54, 18);
-            this.CusDescription.TabIndex = 9;
-            this.CusDescription.Text = "label2";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(25, 198);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(50, 18);
-            this.label6.TabIndex = 8;
-            this.label6.Text = "설명:";
             // 
             // CusIsQualified
             // 
@@ -171,17 +104,209 @@
             this.label2.TabIndex = 10;
             this.label2.Text = "입양가능?";
             // 
+            // CusDescription
+            // 
+            this.CusDescription.AutoSize = true;
+            this.CusDescription.Location = new System.Drawing.Point(125, 198);
+            this.CusDescription.Name = "CusDescription";
+            this.CusDescription.Size = new System.Drawing.Size(54, 18);
+            this.CusDescription.TabIndex = 9;
+            this.CusDescription.Text = "label2";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(25, 198);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(50, 18);
+            this.label6.TabIndex = 8;
+            this.label6.Text = "설명:";
+            // 
+            // CusAddress
+            // 
+            this.CusAddress.AutoSize = true;
+            this.CusAddress.Location = new System.Drawing.Point(125, 156);
+            this.CusAddress.Name = "CusAddress";
+            this.CusAddress.Size = new System.Drawing.Size(54, 18);
+            this.CusAddress.TabIndex = 7;
+            this.CusAddress.Text = "label2";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(25, 156);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(50, 18);
+            this.label5.TabIndex = 6;
+            this.label5.Text = "주소:";
+            // 
+            // CusAge
+            // 
+            this.CusAge.AutoSize = true;
+            this.CusAge.Location = new System.Drawing.Point(125, 82);
+            this.CusAge.Name = "CusAge";
+            this.CusAge.Size = new System.Drawing.Size(54, 18);
+            this.CusAge.TabIndex = 5;
+            this.CusAge.Text = "label2";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(25, 82);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(50, 18);
+            this.label4.TabIndex = 4;
+            this.label4.Text = "나이:";
+            // 
+            // CusFullName
+            // 
+            this.CusFullName.AutoSize = true;
+            this.CusFullName.Location = new System.Drawing.Point(125, 45);
+            this.CusFullName.Name = "CusFullName";
+            this.CusFullName.Size = new System.Drawing.Size(54, 18);
+            this.CusFullName.TabIndex = 3;
+            this.CusFullName.Text = "label2";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(25, 45);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(50, 18);
+            this.label3.TabIndex = 2;
+            this.label3.Text = "이름:";
+            // 
+            // CusLastName
+            // 
+            this.CusLastName.AutoSize = true;
+            this.CusLastName.Location = new System.Drawing.Point(125, 44);
+            this.CusLastName.Name = "CusLastName";
+            this.CusLastName.Size = new System.Drawing.Size(0, 18);
+            this.CusLastName.TabIndex = 1;
+            // 
+            // CusNewPanel
+            // 
+            this.CusNewPanel.Controls.Add(this.label10);
+            this.CusNewPanel.Controls.Add(this.label9);
+            this.CusNewPanel.Controls.Add(this.CreateCustomer);
+            this.CusNewPanel.Controls.Add(this.label8);
+            this.CusNewPanel.Controls.Add(this.label7);
+            this.CusNewPanel.Controls.Add(this.label1);
+            this.CusNewPanel.Controls.Add(this.CusNewDescription);
+            this.CusNewPanel.Controls.Add(this.CusNewAddress);
+            this.CusNewPanel.Controls.Add(this.CusNewBirthDay);
+            this.CusNewPanel.Controls.Add(this.CusNewFirstName);
+            this.CusNewPanel.Controls.Add(this.CusNewLastName);
+            this.CusNewPanel.Location = new System.Drawing.Point(168, 12);
+            this.CusNewPanel.Name = "CusNewPanel";
+            this.CusNewPanel.Size = new System.Drawing.Size(378, 372);
+            this.CusNewPanel.TabIndex = 2;
+            // 
+            // CusNewLastName
+            // 
+            this.CusNewLastName.Location = new System.Drawing.Point(142, 25);
+            this.CusNewLastName.Name = "CusNewLastName";
+            this.CusNewLastName.Size = new System.Drawing.Size(190, 28);
+            this.CusNewLastName.TabIndex = 0;
+            // 
+            // CusNewFirstName
+            // 
+            this.CusNewFirstName.Location = new System.Drawing.Point(142, 67);
+            this.CusNewFirstName.Name = "CusNewFirstName";
+            this.CusNewFirstName.Size = new System.Drawing.Size(190, 28);
+            this.CusNewFirstName.TabIndex = 1;
+            // 
+            // CusNewBirthDay
+            // 
+            this.CusNewBirthDay.Location = new System.Drawing.Point(142, 109);
+            this.CusNewBirthDay.Name = "CusNewBirthDay";
+            this.CusNewBirthDay.Size = new System.Drawing.Size(190, 28);
+            this.CusNewBirthDay.TabIndex = 2;
+            // 
+            // CusNewAddress
+            // 
+            this.CusNewAddress.Location = new System.Drawing.Point(142, 154);
+            this.CusNewAddress.Name = "CusNewAddress";
+            this.CusNewAddress.Size = new System.Drawing.Size(190, 28);
+            this.CusNewAddress.TabIndex = 3;
+            // 
+            // CusNewDescription
+            // 
+            this.CusNewDescription.Location = new System.Drawing.Point(143, 203);
+            this.CusNewDescription.Multiline = true;
+            this.CusNewDescription.Name = "CusNewDescription";
+            this.CusNewDescription.Size = new System.Drawing.Size(188, 79);
+            this.CusNewDescription.TabIndex = 4;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(22, 35);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(32, 18);
+            this.label1.TabIndex = 5;
+            this.label1.Text = "성:";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(16, 77);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(50, 18);
+            this.label7.TabIndex = 6;
+            this.label7.Text = "이름:";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(16, 119);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(50, 18);
+            this.label8.TabIndex = 7;
+            this.label8.Text = "생일:";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(16, 157);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(50, 18);
+            this.label9.TabIndex = 8;
+            this.label9.Text = "주소:";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(16, 206);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(50, 18);
+            this.label10.TabIndex = 9;
+            this.label10.Text = "설명:";
+            // 
+            // CustomerList
+            // 
+            this.CustomerList.FormattingEnabled = true;
+            this.CustomerList.ItemHeight = 18;
+            this.CustomerList.Location = new System.Drawing.Point(5, 12);
+            this.CustomerList.Name = "CustomerList";
+            this.CustomerList.Size = new System.Drawing.Size(157, 202);
+            this.CustomerList.TabIndex = 3;
+            this.CustomerList.Click += new System.EventHandler(this.CustomerList_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(585, 403);
+            this.ClientSize = new System.Drawing.Size(985, 403);
+            this.Controls.Add(this.CustomerList);
+            this.Controls.Add(this.CusNewPanel);
             this.Controls.Add(this.CusDetailPanel);
-            this.Controls.Add(this.CreateCustomer);
             this.Name = "Form1";
             this.Text = "Form1";
             this.CusDetailPanel.ResumeLayout(false);
             this.CusDetailPanel.PerformLayout();
+            this.CusNewPanel.ResumeLayout(false);
+            this.CusNewPanel.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -201,6 +326,18 @@
         private System.Windows.Forms.Label CusLastName;
         private System.Windows.Forms.Label CusIsQualified;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Panel CusNewPanel;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox CusNewDescription;
+        private System.Windows.Forms.TextBox CusNewAddress;
+        private System.Windows.Forms.TextBox CusNewBirthDay;
+        private System.Windows.Forms.TextBox CusNewFirstName;
+        private System.Windows.Forms.TextBox CusNewLastName;
+        private System.Windows.Forms.ListBox CustomerList;
     }
 }
 
