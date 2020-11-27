@@ -15,6 +15,28 @@ namespace AnimalShelter
         public string Address;
         public string Description;
 
+        private List<Pet> MyPets = new List<Pet>();
+        public List<Pet> MyPets1
+        {
+            get
+            {
+                return MyPets;
+            }
+        }
+        public bool Adopt(Pet pet)
+        {
+            if (IsQualified)
+            {
+                MyPets.Add(pet);
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+
+        }
+
         public Customer(string firstName, string lastName, DateTime BirthDay)
         {
             this.FirstName = firstName;
