@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using BabyCarrot.Tools;
+using BabyCarrot.Extensions;
 
 namespace BabyCarrotTest
 {
@@ -11,18 +12,10 @@ namespace BabyCarrotTest
     {
         static void Main(string[] args)
         {
-            LogManager log = new LogManager(null, "_BabyCarrotText");
+            string temp = "test";
 
-            log.WriteLine("[Begin Processing]...");
-            for(int i=0; i<10; i++)
-            {
-                log.WriteLine("Processing: " + i);
-
-                System.Threading.Thread.Sleep(500);
-                
-                log.WriteLine("Done: " + i);
-            } 
-            log.WriteLine("[End Processing]...");
+            Console.WriteLine("IsNumeric? : " + temp.IsNumeric());
+            Console.WriteLine("IsDateTIme? : " + temp.IsDateTime());
         }
     }
 }
